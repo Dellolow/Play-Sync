@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const playlistsCtrl = require('../controllers/playlist');
+const playlistsCtrl = require('../controllers/playlists');
 
 router.get('/', playlistsCtrl.index);
 router.post('/', playlistsCtrl.create);

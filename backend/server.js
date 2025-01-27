@@ -22,7 +22,7 @@ app.use('/api/auth', require('./routes/auth'));
 // All routers below will have all routes protected
 app.use(require('./middleware/ensureLoggedIn'));
 
-app.use('/api/posts', require('./routes/posts'));
+app.use('/api/playlists', require('./routes/playlists'));
 
 // Use a "catch-all" route to deliver the frontend's production index.html
 app.get('*', function (req, res) {
@@ -34,5 +34,5 @@ app.listen(port, () => {
   console.log(`The express app is listening on ${port}`);
 });
 
-app.use('/api/playlists', require('./routes/playlist'));
-app.use('/api/songs', require('./routes/song'));
+app.use('/api/playlists', require('./routes/playlists'));
+app.use('/api/songs', require('./routes/songs'));
