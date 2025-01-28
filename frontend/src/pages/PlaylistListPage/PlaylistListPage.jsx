@@ -1,25 +1,27 @@
 import { useState, useEffect } from 'react';
-import * as postService from '../../services/postService';
+import * as playlistService from '../../services/playlistService'; // Updated to point to your playlist API utility
 import './PlaylistListPage.css';
-import PostItem from '../../components/PostItem/PostItem';
+import PlaylistItem from '../../components/PlaylistItem/PlaylistItem'; // Update to your playlist item component
 
-export default function PostListPage() {
-  const [posts, setPosts] = useState([]);
+export default function PlaylistListPage() {
+  const [playlists, setPlaylists] = useState([]);
 
-  useEffect(() => {
-    async function fetchPosts() {
-      const posts = await postService.index();
-      setPosts(posts);
-    }
-    fetchPosts();
-  }, []);
+  // useEffect(() => {
+  //   async function fetchPlaylists() {
+  //     const fetchedPlaylists = await playlistService.getAll(); // Fetch playlists from the service
+  //     setPlaylists(fetchedPlaylists);
+  //   }
+  //   fetchPlaylists();
+  // }, []);
 
-  const postItems = posts.map((p) => <PostItem key={p._id} post={p} />);
+  // const playlistItems = playlists.map((playlist) => (
+  //   <PlaylistItem key={playlist._id} playlist={playlist} />
+  // ));
 
   return (
     <>
-      <h1>Post List</h1>
-      <section className="post-item-container">{postItems}</section>
+      <h1>My Playlists</h1>
+      <section className="playlist-item-container">{'playlistItems'}</section>
     </>
   );
 }
