@@ -1,5 +1,6 @@
 // src/utilities/playlists-api.js
-import sendRequest from './send-request';
+import sendRequest from '../utilities/send-request';
+import { createPlaylist } from '../../services/playlistService';
 
 const BASE_URL = '/api/playlists';
 

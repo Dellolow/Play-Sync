@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import * as postService from '../../services/postService';
-import './PostListPage.css';
+import './PlaylistListPage.css';
 import PostItem from '../../components/PostItem/PostItem';
 
 export default function PostListPage() {

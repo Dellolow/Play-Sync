@@ -1,8 +1,8 @@
 // src/pages/NewPlaylistPage/NewPlaylistPage.jsx
 import { useState } from 'react';
-import { useNavigate } from 'react-router';
-import { createPlaylist } from '../../services/playlistService';
-import './NewPlaylistPage.css'; // 
+import { useNavigate } from 'react-router-dom';
+import { createPlaylist } from '../../services/playlists-api';
+import './NewPlaylistPage.css'; // Optional for styling
 
 export default function NewPlaylistPage() {
   const [name, setName] = useState('');
@@ -13,7 +13,7 @@ export default function NewPlaylistPage() {
     e.preventDefault();
     try {
       await createPlaylist({ name, description });
-      navigate('/playlists'); // Redirect to playlist index page 
+      navigate('/playlists'); // Redirect to playlist index page (update path if needed)
     } catch (err) {
       console.error(err);
       alert('Failed to create playlist');

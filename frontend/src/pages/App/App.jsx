@@ -3,8 +3,8 @@ import { Routes, Route } from 'react-router';
 import { getUser } from '../../services/authService';
 import './App.css';
 import HomePage from '../HomePage/HomePage';
-import PostListPage from '../PlaylistListPage/PlaylistListPage';
-import NewPostPage from '../NewPlaylistPage/NewPlaylistPage';
+import PlayListPage from '../PlaylistListPage/PlaylistListPage';
+import NewPlaylistPage from '../NewPlaylistPage/NewPlaylistPage';
 import SignUpPage from '../SignUpPage/SignUpPage';
 import LogInPage from '../LogInPage/LogInPage';
 import NavBar from '../../components/NavBar/NavBar';
@@ -20,7 +20,7 @@ export default function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/playlists" element={<PlayListPage />} />
-            <Route path="/playlists/new" element={<NewPlaylistPage />} />
+            <Route path="/play/new" element={<NewPlaylistPage />} />
           </Routes>
         ) : (
           <Routes>
