@@ -3,8 +3,8 @@ import { Routes, Route } from 'react-router';
 import { getUser } from '../../services/authService';
 import './App.css';
 import HomePage from '../HomePage/HomePage';
-import PostListPage from '../PostListPage/PostListPage';
-import NewPostPage from '../NewPostPage/NewPostPage';
+import PostListPage from '../PlaylistListPage/PlaylistListPage';
+import NewPostPage from '../NewPlaylistPage/NewPlaylistPage';
 import SignUpPage from '../SignUpPage/SignUpPage';
 import LogInPage from '../LogInPage/LogInPage';
 import NavBar from '../../components/NavBar/NavBar';
@@ -19,8 +19,8 @@ export default function App() {
         {user ? (
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/posts" element={<PostListPage />} />
-            <Route path="/posts/new" element={<NewPostPage />} />
+            <Route path="/playlists" element={<PlayListPage />} />
+            <Route path="/playlists/new" element={<NewPlaylistPage />} />
           </Routes>
         ) : (
           <Routes>
