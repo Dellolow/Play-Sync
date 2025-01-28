@@ -18,10 +18,10 @@ export default function NavBar({ user, setUser }) {
       {user ? (
         <>
           <NavLink to="/playlists" end>
-            Post List
+            PlayLists
           </NavLink>
           &nbsp; | &nbsp;
-          <NavLink to="/playlists/new">New Post</NavLink>
+          <NavLink to="/playlists/new">New Playlist</NavLink>
           &nbsp; | &nbsp;
           <Link to="" onClick={handleLogOut}>
             Log Out
