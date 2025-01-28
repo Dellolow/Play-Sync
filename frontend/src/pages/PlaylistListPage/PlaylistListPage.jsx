@@ -6,22 +6,22 @@ import PlaylistItem from '../../components/PlaylistItem/PlaylistItem'; // Update
 export default function PlaylistListPage() {
   const [playlists, setPlaylists] = useState([]);
 
-  // useEffect(() => {
-  //   async function fetchPlaylists() {
-  //     const fetchedPlaylists = await playlistService.getAll(); // Fetch playlists from the service
-  //     setPlaylists(fetchedPlaylists);
-  //   }
-  //   fetchPlaylists();
-  // }, []);
+  useEffect(() => {
+    async function fetchPlaylists() {
+      const fetchedPlaylists = await playlistService.getAll(); // Fetch playlists from the service
+      setPlaylists(fetchedPlaylists);
+    }
+    fetchPlaylists();
+  }, []);
 
-  // const playlistItems = playlists.map((playlist) => (
-  //   <PlaylistItem key={playlist._id} playlist={playlist} />
-  // ));
+  const playlistItems = playlists.map((playlist) => (
+    <PlaylistItem key={playlist._id} playlist={playlist} />
+  ));
 
   return (
     <>
       <h1>My Playlists</h1>
-      <section className="playlist-item-container">{'playlistItems'}</section>
+      <section className="playlist-item-container">{playlistItems}</section>
     </>
   );
 }
