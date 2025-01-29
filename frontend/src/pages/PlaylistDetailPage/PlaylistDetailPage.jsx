@@ -7,6 +7,13 @@ import './PlaylistDetailPage.css';
 export default function PlaylistDetailPage() {
   const [playlist, setPlaylist] = useState(null);
   const [availSongs, setAvailSongs] = useState([]);
+  const [songData, setSongData] = useState({
+    title: '',
+    artist: '',
+    genre: 'Hip-Hop',
+    duration: '',
+  });
+  
   const {id} = useParams()
 
 
@@ -26,6 +33,25 @@ export default function PlaylistDetailPage() {
 
   if (!playlist) return null;
 
+  async function handleCreateSong(evt) {
+    evt.preventDefault();
+    try {
+      const newSong = await songService.create(songData);
+      setAvailSongs([...availSongs, newSong]);
+      setSongData({
+        title: '',
+        artist: '',
+        genre: 'Hip-Hop',
+        duration: '',
+      });
+    } catch (err) {
+      console.log(err)
+    }
+  }
+  async function handleChange(evt) {
+    setSongData({...songData, [evt.target.name]: evt.target.value});
+  }
+
 
   return (
     <>
@@ -41,6 +67,26 @@ export default function PlaylistDetailPage() {
         </article>
         <article> 
           <h2>Available Songs</h2>
+          {availSongs.length ? <p>Available Songs Exist</p> : <p>No songs available!</p>}
+          <form onSubmit={handleCreateSong}>
+            <label>Title</label> 
+            <input name="title" value={songData.title} onChange={handleChange} type="text" />
+            <label>Artist</label> 
+            <input name="artist" value={songData.artist} onChange={handleChange} type="text" />
+            <label>Genre</label> 
+            <select name="genre" value={songData.genre} onChange={handleChange} >
+              <option value="Hip-Hop">Hip-Hop</option>
+              <option value="Pop">Pop</option>
+              <option value="R&B">R&B</option>
+              <option value="Alternative">Alternative</option>
+              <option value="Rock">Rock</option>
+              <option value="Funk">Funk</option>
+            </select>
+            <label>Duration</label> 
+            <input name="duration" value={songData.duration} onChange={handleChange} type="text" />
+            <button type="submit">Add Song</button>
+          </form>
+          
         </article>
       </section>
     </>

@@ -1,8 +1,8 @@
 import sendRequest from './sendRequest';
 const BASE_URL = '/api/songs';
 
-export function createPlaylist(playlistData) {
-  return sendRequest(BASE_URL, 'POST', playlistData);
+export function create(songData) {
+  return sendRequest(BASE_URL, 'POST', songData);
 }
 
 

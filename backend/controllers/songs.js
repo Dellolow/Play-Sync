@@ -19,6 +19,7 @@ async function getAvail(req, res) {
 
 async function create(req, res) {
   try {
+    req.body.user = req.user._id;
     const song = await Song.create(req.body);
     res.json(song);
   } catch (err) {
