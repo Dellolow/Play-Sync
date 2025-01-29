@@ -3,6 +3,7 @@ import { useParams } from 'react-router';
 import * as playlistService from '../../services/playlistService'; // Updated to point to your playlist API utility
 import * as songService from '../../services/songService';
 import './PlaylistDetailPage.css';
+import SongItem from '../../components/SongItem/SongItem';
 
 export default function PlaylistDetailPage() {
   const [playlist, setPlaylist] = useState(null);
@@ -25,7 +26,7 @@ export default function PlaylistDetailPage() {
     fetchPlaylist();
 
     async function fetchAvailSongs() {
-      const fetchedAvailSongs = await songService.getAvailSongs(playlistId); 
+      const fetchedAvailSongs = await songService.getAvailSongs(id); 
       setAvailSongs(fetchedAvailSongs);
     }
     fetchAvailSongs();
@@ -52,6 +53,7 @@ export default function PlaylistDetailPage() {
     setSongData({...songData, [evt.target.name]: evt.target.value});
   }
 
+  const availSongItems = availSongs.map((song) => <SongItem song={song} key={song._id}/>);
 
   return (
     <>
@@ -67,7 +69,7 @@ export default function PlaylistDetailPage() {
         </article>
         <article> 
           <h2>Available Songs</h2>
-          {availSongs.length ? <p>Available Songs Exist</p> : <p>No songs available!</p>}
+          {availSongs.length ? <section>{availSongItems}</section> : <p>No songs available!</p>}
           <form onSubmit={handleCreateSong}>
             <label>Title</label> 
             <input name="title" value={songData.title} onChange={handleChange} type="text" />

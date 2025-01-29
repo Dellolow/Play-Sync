@@ -23,6 +23,7 @@ app.use('/api/auth', require('./routes/auth'));
 app.use(require('./middleware/ensureLoggedIn'));
 
 app.use('/api/playlists', require('./routes/playlists'));
+app.use('/api/songs', require('./routes/songs'));
 
 // Use a "catch-all" route to deliver the frontend's production index.html
 app.get('*', function (req, res) {
