@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import * as playlistService from '../../services/playlistService'; // Updated to point to your playlist API utility
 import './PlaylistListPage.css';
-import PlaylistItem from '../../components/PlaylistItem/PlaylistItem'; // Update to your playlist item component
+import PlaylistItem from '../../components/PlaylistItem/PlaylistItem'; 
 
 export default function PlaylistListPage() {
   const [playlists, setPlaylists] = useState([]);
