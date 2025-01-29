@@ -1,17 +1,19 @@
 const Song = require('../models/song');
+const Playlist = require('../models/playlist');
 
 module.exports = {
   create,
-  index,
+  getAvail,
   search,
 };
 
-async function index(req, res) {
+async function getAvail(req, res) {
   try {
-    const songs = await Song.find({}).populate('playlist');
+    const playlist = Playlist.findById(req.params.playlistId);
+    const songs = await Song.find({user: req.user._id, _id: {$nin: playlist.songs}});
     res.json(songs);
   } catch (err) {
-    res.status(400).json({ message: 'Failed to fetch songs' });
+    res.status(400).json({ message: 'Failed to fetch Available Songs' });
   }
 }
 

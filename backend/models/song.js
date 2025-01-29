@@ -6,7 +6,7 @@ const songSchema = new Schema(
       artist: { type: String, required: true },
       genre: String,
       duration: String, // Example: '3:45'
-      playlist: {
+      user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
         required: true
