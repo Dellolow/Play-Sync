@@ -3,9 +3,10 @@ const Song = require('../models/song');
 
 module.exports = {
   create,
-  index,
+  index, 
   addSong,
   removeSong,
+  show
 };
 
 async function index(req, res) {
@@ -15,6 +16,15 @@ async function index(req, res) {
     res.json(playlists);
   } catch (err) {
     res.status(400).json({ message: 'Failed to fetch playlists' });
+  }
+}
+
+async function show(req, res) {
+  try {
+    const playlist = await Playlist.findById(req.params.id).populate('songs');
+    res.json(playlist);
+  } catch (err) {
+    res.status(400).json({ message: 'Failed to fetch playlist' });
   }
 }
 
