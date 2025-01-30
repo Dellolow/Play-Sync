@@ -59,7 +59,14 @@ export default function PlaylistDetailPage() {
     setPlaylist(updatedPlaylist); 
   }
 
+  async function handleRemoveFromPlaylist(songId) {
+    const [updatedPlaylist, updatedAvailSongs] = await playlistService.removeFromPlaylist(playlist._id, songId); 
+    setAvailSongs(updatedAvailSongs); 
+    setPlaylist(updatedPlaylist); 
+  }
+
   const availSongItems = availSongs.map((song) => <SongItem handleAddToPlaylist={handleAddToPlaylist} song={song} key={song._id}/>);
+  const playlistSongItems = playlist.songs.map((song) => <SongItem handleRemoveFromPlaylist={handleRemoveFromPlaylist} song={song} key={song._id}/>);
 
   return (
     <>
@@ -71,7 +78,7 @@ export default function PlaylistDetailPage() {
           <p>{playlist.description}</p>
           <hr/>
           <h4>Songs</h4>
-          {playlist.songs.length ? <p>Songs Exist</p> : <p>No songs yet!</p>}
+          {playlist.songs.length ? <section>{availSongItems}</section> : <p>No Songs Yet!</p>}
         </article>
         <article> 
           <h2>Available Songs</h2>

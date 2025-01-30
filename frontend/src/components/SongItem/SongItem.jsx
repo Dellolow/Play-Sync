@@ -1,6 +1,6 @@
 import "./SongItem.css"
 
-export default function SongItem({ song, handleAddToPlaylist }) {
+export default function SongItem({ song, handleAddToPlaylist, handleRemoveFromPlaylist }) {
   return (
     <article className="SongItem">
       <h4>🕺{song.title}</h4>
