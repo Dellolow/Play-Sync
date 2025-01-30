@@ -1,10 +1,12 @@
 import "./SongItem.css"
 
-export default function SongItem({ song }) {
+export default function SongItem({ song, handleAddToPlaylist }) {
   return (
     <article className="SongItem">
       <h4>🕺{song.title}</h4>
-      <p>Genre: {song.genre}</p>
+      <div>Genre: {song.genre}</div>
+
+      <button onClick={() => handleAddToPlaylist(song._id)}>Add to Playlist</button>
     </article>
   );
 }

@@ -40,13 +40,11 @@ async function create(req, res) {
 
 async function addSong(req, res) {
   try {
-    const playlist = await Playlist.findById(req.params.id);
+    const playlist = await Playlist.findById(req.params.playlistId);
     if (!playlist) throw new Error('Playlist not found');
-
-    const song = await Song.create(req.body); // Create a new song
-    playlist.songs.push(song._id); // Add song to playlist
+    playlist.songs.push(req.params.songId); // Add song to playlist
     await playlist.save();
-    res.json(song);
+    res.json(playlist);
   } catch (err) {
     res.status(400).json({ message: 'Failed to add song' });
   }

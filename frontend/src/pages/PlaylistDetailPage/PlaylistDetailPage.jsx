@@ -53,7 +53,13 @@ export default function PlaylistDetailPage() {
     setSongData({...songData, [evt.target.name]: evt.target.value});
   }
 
-  const availSongItems = availSongs.map((song) => <SongItem song={song} key={song._id}/>);
+  async function handleAddToPlaylist(songId) {
+    const updatedPlaylist = await playlistService.addToPlaylist(playlist._id, songId); 
+    setAvailSongs(availSongs.filter((song) => song._id !== songId) ); 
+    setPlaylist(updatedPlaylist); 
+  }
+
+  const availSongItems = availSongs.map((song) => <SongItem handleAddToPlaylist={handleAddToPlaylist} song={song} key={song._id}/>);
 
   return (
     <>
