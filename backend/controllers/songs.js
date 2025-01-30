@@ -9,7 +9,7 @@ module.exports = {
 
 async function getAvail(req, res) {
   try {
-    const playlist = Playlist.findById(req.params.playlistId);
+    const playlist = await Playlist.findById(req.params.playlistId);
     const songs = await Song.find({user: req.user._id, _id: {$nin: playlist.songs}});
     res.json(songs);
   } catch (err) {

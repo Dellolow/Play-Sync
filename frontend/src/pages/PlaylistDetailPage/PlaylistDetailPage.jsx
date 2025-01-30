@@ -55,13 +55,13 @@ export default function PlaylistDetailPage() {
   }
 
   async function handleAddToPlaylist(songId) {
-    const updatedPlaylist = await playlistService.addToPlaylist(playlist._id, songId); 
-    setAvailSongs(availSongs.filter((song) => song._id !== songId) ); 
+    const [updatedPlaylist, updatedAvailSongs] = await playlistService.addToPlaylist(playlist._id, songId); 
+    setAvailSongs(updatedAvailSongs); 
     setPlaylist(updatedPlaylist); 
   }
 
   async function handleRemoveFromPlaylist(songId) {
-    const [updatedPlaylist, updatedAvailSongs] = await playlistService.removeFromPlaylist(playlist._id, songId); 
+    const [updatedPlaylist, updatedAvailSongs] = await playlistService.removeFromPlaylist(songId); 
     setAvailSongs(updatedAvailSongs); 
     setPlaylist(updatedPlaylist); 
   }
@@ -85,7 +85,7 @@ export default function PlaylistDetailPage() {
           <button onClick={handleDeleteButton}>Delete Playlist</button>
           <hr/>
           <h4>Songs</h4>
-          {playlist.songs.length ? <section>{availSongItems}</section> : <p>No Songs Yet!</p>}
+          {playlist.songs.length ? <section>{playlistSongItems}</section> : <p>No Songs Yet!</p>}
         </article>
         <article> 
           <h2>Available Songs</h2>

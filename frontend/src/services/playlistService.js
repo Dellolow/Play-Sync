@@ -20,3 +20,7 @@ export function deletePlaylist(id) {
 export function addToPlaylist(playlistId, songId) {
   return sendRequest(`${BASE_URL}/${playlistId}/add-song/${songId}`, 'PUT');
 } 
+
+export function removeFromPlaylist(songId) {
+  return sendRequest(`${BASE_URL}/remove-song/${songId}`, 'PUT');
+} 
