@@ -6,7 +6,8 @@ module.exports = {
   index, 
   addSong,
   removeSong,
-  show
+  show,
+  delete: deletePlaylist
 };
 
 async function index(req, res) {
@@ -23,6 +24,15 @@ async function show(req, res) {
   try {
     const playlist = await Playlist.findById(req.params.id).populate('songs');
     res.json(playlist);
+  } catch (err) {
+    res.status(400).json({ message: 'Failed to fetch playlist' });
+  }
+}
+
+async function deletePlaylist(req, res) {
+  try {
+    await Playlist.findByIdAndDelete(req.params.playlistId);
+    res.json({ message: 'Playlist Deleted' });
   } catch (err) {
     res.status(400).json({ message: 'Failed to fetch playlist' });
   }

@@ -13,6 +13,9 @@ export function getAll() {
 export function getOne(id) {
   return sendRequest(`${BASE_URL}/${id}`);
 }
+export function deletePlaylist(id) {
+  return sendRequest(`${BASE_URL}/${id}`, 'DELETE');
+}
 
 export function addToPlaylist(playlistId, songId) {
   return sendRequest(`${BASE_URL}/${playlistId}/add-song/${songId}`, 'PUT');

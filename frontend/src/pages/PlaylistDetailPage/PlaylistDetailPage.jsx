@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router';
+import { useParams, useNavigate, Navigate } from 'react-router';
 import * as playlistService from '../../services/playlistService'; // Updated to point to your playlist API utility
 import * as songService from '../../services/songService';
 import './PlaylistDetailPage.css';
@@ -15,7 +15,8 @@ export default function PlaylistDetailPage() {
     duration: '',
   });
   
-  const {id} = useParams()
+  const {id} = useParams();
+  const navigate = useNavigate();
 
 
   useEffect(() => {
@@ -65,6 +66,11 @@ export default function PlaylistDetailPage() {
     setPlaylist(updatedPlaylist); 
   }
 
+  async function handleDeleteButton() {
+    await playlistService.deletePlaylist(id);
+    navigate('/playlists'); 
+  }
+
   const availSongItems = availSongs.map((song) => <SongItem handleAddToPlaylist={handleAddToPlaylist} song={song} key={song._id}/>);
   const playlistSongItems = playlist.songs.map((song) => <SongItem handleRemoveFromPlaylist={handleRemoveFromPlaylist} song={song} key={song._id}/>);
 
@@ -76,6 +82,7 @@ export default function PlaylistDetailPage() {
         <article>
           <h2> {playlist.name} </h2>
           <p>{playlist.description}</p>
+          <button onClick={handleDeleteButton}>Delete Playlist</button>
           <hr/>
           <h4>Songs</h4>
           {playlist.songs.length ? <section>{availSongItems}</section> : <p>No Songs Yet!</p>}
