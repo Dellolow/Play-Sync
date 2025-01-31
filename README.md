@@ -2,10 +2,10 @@
 ## Description
 **PlaySync** is a dynamic CRUD application designed for music lovers to create, manage, and explore their personalized playlists. With PlaySync, users can add, view, update, and delete songs from their custom playlists, making it easier to organize their favorite tracks and discover new music. The app offers a seamless user experience with a stylish and modern design, ensuring a smooth and enjoyable way to sync with your favorite tunes.
 
-
+![screenshot](imgs/screen-shot1.png)
 
 ## Experience PlaySync:
-PlaySync
+[PlaySync] (https://git.heroku.com/play-sync21.git)
 
 ## Technologies Used
 * **React** for building a dynamic and interactive frontend
