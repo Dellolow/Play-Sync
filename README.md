@@ -5,7 +5,7 @@
 ![screenshot](imgs/screen-shot1.png)
 
 ## Experience PlaySync:
-[PlaySync] (https://git.heroku.com/play-sync21.git)
+[PlaySync] (https://play-sync21-0f1460658093.herokuapp.com/)
 
 ## Technologies Used
 * **React** for building a dynamic and interactive frontend
