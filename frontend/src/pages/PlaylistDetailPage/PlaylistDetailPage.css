@@ -1,3 +1,18 @@
 .PlaylistDetailPage {
   display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 20px;
+}
+
+.PlaylistDetailPage article {
+  flex: 1;
+  padding: 20px;
+  border: 1px solid #1a1a1a;
+  border-radius: 5px;
+  background-color: white;
+}
+
+.PlaylistDetailPage button {
+  margin-top: 10px;
 }

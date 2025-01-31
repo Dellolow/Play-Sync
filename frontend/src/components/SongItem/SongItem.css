@@ -1,5 +1,10 @@
 .SongItem {
-    border: 0.5rem solid blue;
-    margin: 1rem;
-    padding: 1rem;
+  border: 2px solid #1a1a1a;
+  padding: 10px;
+  margin: 5px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
 }

@@ -6,6 +6,7 @@
 
 .post-item-container > article {
   border: 0.5vmin dashed rebeccapurple;
+  color: deepskyblue;
   padding: 2vmin;
   border-radius: 0.5vmin;
 }

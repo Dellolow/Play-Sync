@@ -1,0 +1,67 @@
+General Page Styles
+body {
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    color: #ffffff;
+    margin: 0;
+    padding: 20px;
+} */
+
+Page Header
+h1 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+     Playlist Grid
+.playlist-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+Individual Playlist Card */
+.playlist-card {
+    background-color: #1e1e1e;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+.playlist-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(255, 255, 255, 0.2);
+}
+
+/* Playlist Image */
+.playlist-card img {
+    width: 100%;
+    border-radius: 8px;
+    object-fit: cover;
+    height: 150px;
+}
+
+/* Playlist Title */
+.playlist-card h3 {
+    margin: 10px 0 5px;
+    font-size: 1.2rem;
+}
+
+/* Playlist Description */
+.playlist-card p {
+    font-size: 0.9rem;
+    color: #b3b3b3;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .playlist-container {
+        grid-template-columns: 1fr;
+    }
+}

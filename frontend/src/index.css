@@ -1,83 +1,109 @@
-:root {
-  font-family: Arial, Helvetica, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color: #1a1a1a;
-  background-color: whitesmoke;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-* {
-  box-sizing: border-box;
-}
-
+/* General Page Styles */
 body {
+  font-family: 'Arial', sans-serif;
+  background-color: #ca7777;
+  color: #ffffff;
   margin: 0;
-  min-height: 100vh;
+  padding: 0;
 }
 
-h1,
-h2 {
+/* Navigation Bar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1e1e1e;
+  padding: 15px 30px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1.2rem;
+  margin-right: 20px;
+  transition: color 0.3s ease-in-out;
+}
+
+.navbar a:hover {
+  color: #1db954;
+}
+
+/* Main Heading */
+h1 {
   text-align: center;
+  font-size: 2.5rem;
+  margin: 30px 0;
 }
 
-button {
-  border: 0.5vmin solid #1a1a1a;
-  border-radius: 0.5vmin;
-  padding: 0.8vmin;
-  font-size: 2vmin;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  color: whitesmoke;
+/* Playlist / Song Grid */
+.music-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Music Card */
+.music-card {
+  background-color: #1e1e1e;
+  padding: 15px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease-in-out, box-shadow 0.3s ease-in-out;
   cursor: pointer;
 }
 
-button:hover {
-  background-color: white;
-  color: #1a1a1a;
-  border-color: #1a1a1a;
+.music-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
 }
 
-button:disabled {
-  background-color: grey;
+/* Playlist / Song Image */
+.music-card img {
+  width: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+  height: 180px;
 }
 
-form {
-  display: grid;
-  gap: 1.2vmin;
-  padding: 4vmin;
-  border: 0.5vmin solid #1a1a1a;
-  border-radius: 1vmin;
+/* Playlist / Song Title */
+.music-card h3 {
+  margin: 10px 0 5px;
+  font-size: 1.3rem;
 }
 
-input,
-select,
-textarea {
-  padding: 0.7vmin;
-  font-size: 2vmin;
-  border: 0.3vmin solid #1a1a1a;
-  border-radius: 0.5vmin;
+/* Description */
+.music-card p {
+  font-size: 0.9rem;
+  color: #b3b3b3;
 }
 
-form>button:last-child {
-  margin-top: 2vmin;
+/* Button Style */
+.button {
+  display: inline-block;
+  padding: 10px 15px;
+  background-color: #1db954;
+  color: #fff;
+  border-radius: 20px;
+  text-decoration: none;
+  font-size: 1rem;
+  margin-top: 10px;
+  transition: background 0.3s ease-in-out;
 }
 
-label {
-  font-size: 2vmin;
-  font-weight: bold;
+.button:hover {
+  background-color: #17a74b;
 }
 
-h2 {
-  text-align: center;
-}
-
-.error-message {
-  color: rgb(166, 29, 29);
+/* Responsive */
+@media (max-width: 768px) {
+  .music-container {
+      grid-template-columns: 1fr;
+  }
 }
